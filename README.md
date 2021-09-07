@@ -181,6 +181,23 @@ console.log( y );
 
 <!-- /.examples -->
 
+<!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
+
+<section class="related">
+
+* * *
+
+## See Also
+
+-   [`@stdlib/blas/base/daxpy`][@stdlib/blas/base/daxpy]: multiply a vector x by a constant and add the result to y.
+-   [`@stdlib/blas/base/saxpy`][@stdlib/blas/base/saxpy]: multiply a vector x by a constant and add the result to y.
+
+</section>
+
+<!-- /.related -->
+
+<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
 
 <section class="main-repo" >
 
@@ -244,9 +261,13 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
+<!-- <related-links> -->
+
 [@stdlib/blas/base/daxpy]: https://github.com/stdlib-js/blas-base-daxpy
 
 [@stdlib/blas/base/saxpy]: https://github.com/stdlib-js/blas-base-saxpy
+
+<!-- </related-links> -->
 
 </section>
 
