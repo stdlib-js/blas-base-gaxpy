@@ -1,0 +1,39 @@
+{
+  "name": "@stdlib/blas-base-gaxpy",
+  "version": "0.0.0",
+  "description": "Multiply x by a constant and add the result to y.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./mod.js",
+  "homepage": "https://stdlib.io",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/blas-base-gaxpy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "keywords": [
+    "stdlib",
+    "stdmath",
+    "mathematics",
+    "math",
+    "blas",
+    "level 1",
+    "axpy",
+    "daxpy",
+    "saxpy",
+    "linear",
+    "algebra",
+    "subroutines",
+    "add",
+    "alpha",
+    "vector",
+    "array",
+    "ndarray"
+  ],
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  }
+}
