@@ -1,4 +1,0 @@
-// Copyright (c) 2023 The Stdlib Authors. License is Apache-2.0: http://www.apache.org/licenses/LICENSE-2.0
-/// <reference types="./index.d.ts" />
-import r from"https://cdn.jsdelivr.net/gh/stdlib-js/utils-define-nonenumerable-read-only-property@v0.1.0-esm/index.mjs";function n(r,n,e,f,t,i){var o,u,a,d;if(r<=0||0===n)return t;if(1===f&&1===i){if((a=r%4)>0)for(d=0;d<a;d++)t[d]+=n*e[d];if(r<4)return t;for(d=a;d<r;d+=4)t[d]+=n*e[d],t[d+1]+=n*e[d+1],t[d+2]+=n*e[d+2],t[d+3]+=n*e[d+3];return t}for(o=f<0?(1-r)*f:0,u=i<0?(1-r)*i:0,d=0;d<r;d++)t[u]+=n*e[o],o+=f,u+=i;return t}function e(r,n,e,f,t,i,o,u){var a,d,s,l;if(r<=0||0===n)return i;if(a=t,d=u,1===f&&1===o){if((s=r%4)>0)for(l=0;l<s;l++)i[d]+=n*e[a],a+=f,d+=o;if(r<4)return i;for(l=s;l<r;l+=4)i[d]+=n*e[a],i[d+1]+=n*e[a+1],i[d+2]+=n*e[a+2],i[d+3]+=n*e[a+3],a+=4,d+=4;return i}for(l=0;l<r;l++)i[d]+=n*e[a],a+=f,d+=o;return i}r(n,"ndarray",e);export{n as default,e as ndarray};
-//# sourceMappingURL=index.mjs.map
