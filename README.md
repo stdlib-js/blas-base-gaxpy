@@ -35,20 +35,30 @@ limitations under the License.
 
 > Multiply `x` by a constant `alpha` and add the result to `y`.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-base-gaxpy
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import gaxpy from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@deno/mod.js';
-```
-
-You can also import the following named exports from the package:
-
-```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@deno/mod.js';
+var gaxpy = require( '@stdlib/blas-base-gaxpy' );
 ```
 
 #### gaxpy( N, alpha, x, strideX, y, strideY )
@@ -73,18 +83,13 @@ The function has the following parameters:
 -   **y**: input [`Array`][mdn-array] or [`typed array`][mdn-typed-array].
 -   **strideY**: index increment for `y`.
 
-The `N` and stride parameters determine which elements in `x` and `y` are accessed at runtime. For example, to multiply every other value in `x` by `alpha` and add the result to the first `N` elements of `y` in reverse order,
+The `N` and stride parameters determine which elements in the strided arrays are accessed at runtime. For example, to multiply every other value in `x` by `alpha` and add the result to the first `N` elements of `y` in reverse order,
 
 ```javascript
-import floor from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-floor@deno/mod.js';
-
 var x = [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ];
 var y = [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ];
 
-var alpha = 5.0;
-var N = floor( x.length / 2 );
-
-gaxpy( N, alpha, x, 2, y, -1 );
+gaxpy( 3, 5.0, x, 2, y, -1 );
 // y => [ 26.0, 16.0, 6.0, 1.0, 1.0, 1.0 ]
 ```
 
@@ -93,8 +98,7 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 <!-- eslint-disable stdlib/capitalized-comments -->
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
-import floor from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-floor@deno/mod.js';
+var Float64Array = require( '@stdlib/array-float64' );
 
 // Initial arrays...
 var x0 = new Float64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
@@ -104,9 +108,7 @@ var y0 = new Float64Array( [ 7.0, 8.0, 9.0, 10.0, 11.0, 12.0 ] );
 var x1 = new Float64Array( x0.buffer, x0.BYTES_PER_ELEMENT*1 ); // start at 2nd element
 var y1 = new Float64Array( y0.buffer, y0.BYTES_PER_ELEMENT*3 ); // start at 4th element
 
-var N = floor( x0.length / 2 );
-
-gaxpy( N, 5.0, x1, -2, y1, 1 );
+gaxpy( 3, 5.0, x1, -2, y1, 1 );
 // y0 => <Float64Array>[ 7.0, 8.0, 9.0, 40.0, 31.0, 22.0 ]
 ```
 
@@ -128,18 +130,13 @@ The function has the following additional parameters:
 -   **offsetX**: starting index for `x`.
 -   **offsetY**: starting index for `y`.
 
-While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying `buffer`, the offset parameters support indexing semantics based on starting indices. For example, to multiply every other value in `x` by a constant `alpha` starting from the second value and add to the last `N` elements in `y` where `x[i] -> y[n]`, `x[i+2] -> y[n-1]`,...,
+While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying buffer, the offset parameters support indexing semantics based on starting indices. For example, to multiply every other value in `x` by a constant `alpha` starting from the second value and add to the last `N` elements in `y` where `x[i] -> y[n]`, `x[i+2] -> y[n-1]`,...,
 
 ```javascript
-import floor from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-floor@deno/mod.js';
-
 var x = [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ];
 var y = [ 7.0, 8.0, 9.0, 10.0, 11.0, 12.0 ];
 
-var alpha = 5.0;
-var N = floor( x.length / 2 );
-
-gaxpy.ndarray( N, alpha, x, 2, 1, y, -1, y.length-1 );
+gaxpy.ndarray( 3, 5.0, x, 2, 1, y, -1, y.length-1 );
 // y => [ 7.0, 8.0, 9.0, 40.0, 31.0, 22.0 ]
 ```
 
@@ -165,21 +162,14 @@ gaxpy.ndarray( N, alpha, x, 2, 1, y, -1, y.length-1 );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@deno/mod.js';
-import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@deno/mod.js';
-import gaxpy from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@deno/mod.js';
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' ).factory;
+var filledarrayBy = require( '@stdlib/array-filled-by' );
+var gaxpy = require( '@stdlib/blas-base-gaxpy' );
 
-var x;
-var y;
-var i;
-
-x = [];
-y = [];
-for ( i = 0; i < 10; i++ ) {
-    x.push( round( randu()*100.0 ) );
-    y.push( round( randu()*10.0 ) );
-}
+var x = filledarrayBy( 10, 'generic', discreteUniform( 0, 100 ) );
 console.log( x );
+
+var y = filledarrayBy( x.length, 'generic', discreteUniform( 0, 10 ) );
 console.log( y );
 
 gaxpy.ndarray( x.length, 5.0, x, 1, 0, y, -1, y.length-1 );
@@ -214,7 +204,7 @@ console.log( y );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -284,9 +274,9 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/blas/base/daxpy]: https://github.com/stdlib-js/blas-base-daxpy/tree/deno
+[@stdlib/blas/base/daxpy]: https://github.com/stdlib-js/blas-base-daxpy
 
-[@stdlib/blas/base/saxpy]: https://github.com/stdlib-js/blas-base-saxpy/tree/deno
+[@stdlib/blas/base/saxpy]: https://github.com/stdlib-js/blas-base-saxpy
 
 <!-- </related-links> -->
 
