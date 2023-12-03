@@ -272,11 +272,11 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
-<!-- <related-links> -->
-
 [@stdlib/blas/base/daxpy]: https://github.com/stdlib-js/blas-base-daxpy
 
 [@stdlib/blas/base/saxpy]: https://github.com/stdlib-js/blas-base-saxpy
+
+<!-- <related-links> -->
 
 <!-- </related-links> -->
 
