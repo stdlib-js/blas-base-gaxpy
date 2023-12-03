@@ -35,38 +35,30 @@ limitations under the License.
 
 > Multiply `x` by a constant `alpha` and add the result to `y`.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-base-gaxpy
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-gaxpy = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var gaxpy = require( 'path/to/vendor/umd/blas-base-gaxpy/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.gaxpy;
-})();
-</script>
+var gaxpy = require( '@stdlib/blas-base-gaxpy' );
 ```
 
 #### gaxpy( N, alpha, x, strideX, y, strideY )
@@ -169,29 +161,21 @@ gaxpy.ndarray( 3, 5.0, x, 2, 1, y, -1, y.length-1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {.factory;
-var filledarrayBy = require( '@stdlib/array-filled-by' );
+```javascript
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
 var gaxpy = require( '@stdlib/blas-base-gaxpy' );
 
-var x = filledarrayBy( 10, 'generic', discreteUniform( 0, 100 ) );
+var opts = {
+    'dtype': 'generic'
+};
+var x = discreteUniform( 10, 0, 100, opts );
 console.log( x );
 
-var y = filledarrayBy( x.length, 'generic', discreteUniform( 0, 10 ) );
+var y = discreteUniform( x.length, 0, 10, opts );
 console.log( y );
 
 gaxpy.ndarray( x.length, 5.0, x, 1, 0, y, -1, y.length-1 );
 console.log( y );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -290,9 +274,9 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
-[@stdlib/blas/base/daxpy]: https://github.com/stdlib-js/blas-base-daxpy/tree/umd
+[@stdlib/blas/base/daxpy]: https://github.com/stdlib-js/blas-base-daxpy
 
-[@stdlib/blas/base/saxpy]: https://github.com/stdlib-js/blas-base-saxpy/tree/umd
+[@stdlib/blas/base/saxpy]: https://github.com/stdlib-js/blas-base-saxpy
 
 <!-- <related-links> -->
 
