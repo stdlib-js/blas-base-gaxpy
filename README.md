@@ -42,13 +42,13 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import gaxpy from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@deno/mod.js';
+import gaxpy from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@v0.2.1-deno/mod.js';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@deno/mod.js';
+import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@v0.2.1-deno/mod.js';
 ```
 
 #### gaxpy( N, alpha, x, strideX, y, strideY )
@@ -153,7 +153,7 @@ gaxpy.ndarray( 3, 5.0, x, 2, 1, y, -1, y.length-1 );
 
 ```javascript
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@deno/mod.js';
-import gaxpy from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@deno/mod.js';
+import gaxpy from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@v0.2.1-deno/mod.js';
 
 var opts = {
     'dtype': 'generic'
