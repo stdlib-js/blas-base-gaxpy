@@ -35,20 +35,32 @@ limitations under the License.
 
 > Multiply `x` by a constant `alpha` and add the result to `y`.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-base-gaxpy
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import gaxpy from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@esm/index.mjs';
-```
-
-You can also import the following named exports from the package:
-
-```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@esm/index.mjs';
+var gaxpy = require( '@stdlib/blas-base-gaxpy' );
 ```
 
 #### gaxpy( N, alpha, x, strideX, y, strideY )
@@ -68,9 +80,9 @@ The function has the following parameters:
 
 -   **N**: number of indexed elements.
 -   **alpha**: `numeric` constant.
--   **x**: input [`Array`][mdn-array] or [`typed array`][mdn-typed-array].
+-   **x**: first input array.
 -   **strideX**: index increment for `x`.
--   **y**: input [`Array`][mdn-array] or [`typed array`][mdn-typed-array].
+-   **y**: second input array.
 -   **strideY**: index increment for `y`.
 
 The `N` and stride parameters determine which elements in the strided arrays are accessed at runtime. For example, to multiply every other value in `x` by `alpha` and add the result to the first `N` elements of `y` in reverse order,
@@ -88,7 +100,7 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 <!-- eslint-disable stdlib/capitalized-comments -->
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
 
 // Initial arrays...
 var x0 = new Float64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
@@ -140,6 +152,7 @@ gaxpy.ndarray( 3, 5.0, x, 2, 1, y, -1, y.length-1 );
 
 -   If `N <= 0` or `alpha == 0`, both functions return `y` unchanged.
 -   `gaxpy()` corresponds to the [BLAS][blas] level 1 function [`daxpy`][daxpy] with the exception that this implementation works with any array type, not just Float64Arrays. Depending on the environment, the typed versions ([`daxpy`][@stdlib/blas/base/daxpy], [`saxpy`][@stdlib/blas/base/saxpy], etc.) are likely to be significantly more performant.
+-   Both functions support array-like objects having getter and setter accessors for array element access (e.g., [`@stdlib/array-base/accessor`][@stdlib/array/base/accessor]).
 
 </section>
 
@@ -151,14 +164,9 @@ gaxpy.ndarray( 3, 5.0, x, 2, 1, y, -1, y.length-1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@esm/index.mjs';
-import gaxpy from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gaxpy@esm/index.mjs';
+```javascript
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var gaxpy = require( '@stdlib/blas-base-gaxpy' );
 
 var opts = {
     'dtype': 'generic'
@@ -171,10 +179,6 @@ console.log( y );
 
 gaxpy.ndarray( x.length, 5.0, x, 1, 0, y, -1, y.length-1 );
 console.log( y );
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -205,7 +209,7 @@ console.log( y );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -272,13 +276,13 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 [daxpy]: http://www.netlib.org/lapack/explore-html/de/da4/group__double__blas__level1.html
 
-[mdn-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
-[@stdlib/blas/base/daxpy]: https://github.com/stdlib-js/blas-base-daxpy/tree/esm
+[@stdlib/blas/base/daxpy]: https://github.com/stdlib-js/blas-base-daxpy
 
-[@stdlib/blas/base/saxpy]: https://github.com/stdlib-js/blas-base-saxpy/tree/esm
+[@stdlib/blas/base/saxpy]: https://github.com/stdlib-js/blas-base-saxpy
+
+[@stdlib/array/base/accessor]: https://github.com/stdlib-js/array-base-accessor
 
 <!-- <related-links> -->
 
