@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-06-30)
+## Unreleased (2025-07-12)
 
 <section class="features">
 
@@ -22,6 +22,7 @@
 
 <details>
 
+-   [`37aabaf`](https://github.com/stdlib-js/stdlib/commit/37aabafe30fd671f0fd7ea58b21d192abe6e3208) - **test:** fix test case _(by Athan Reines)_
 -   [`cb8489a`](https://github.com/stdlib-js/stdlib/commit/cb8489a1e33cc21eba3dd883e6ada2b2e2ce82db) - **feat:** add support for accessor arrays `blas/base/gaxpy` [(#7244)](https://github.com/stdlib-js/stdlib/pull/7244) _(by Shabareesh Shetty, Athan Reines)_
 -   [`0d8ee2d`](https://github.com/stdlib-js/stdlib/commit/0d8ee2dd2425d7414487f65940dfc4c25c79ad1d) - **docs:** update related packages sections [(#4334)](https://github.com/stdlib-js/stdlib/pull/4334) _(by stdlib-bot)_
 -   [`2544a02`](https://github.com/stdlib-js/stdlib/commit/2544a02513ab1ae73c960455671f1886bfb6cf64) - **docs:** update description _(by Athan Reines)_
